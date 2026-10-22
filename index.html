@@ -104,7 +104,7 @@
     .explore { background: var(--marine); text-align: center; }
     .section-title { font-size: 34px; color: var(--deep-sea); margin-bottom: 6px; }
     .section-sub { color: var(--charcoal); margin-bottom: 24px; font-size: 15px; }
-    .brush { display: block; width: 96px; height: auto; margin: 0 auto 14px; }
+    .brush { display: block; width: 170px; height: auto; margin: 0 auto 16px; }
 
     /* 4. Blog */
     .blog { background: var(--mystic); }
@@ -218,9 +218,14 @@
 
   <!-- 3. EXPLORE -->
   <section class="band explore">
-    <svg class="brush" viewBox="0 0 120 34" aria-hidden="true">
-      <path d="M6 8C32 28 72 30 106 12" fill="none" stroke="#509999" stroke-width="7" stroke-linecap="round"/>
-      <path d="M94 7.6L111 9.6L102.4 24.1Z" fill="#509999" stroke="#509999" stroke-width="5" stroke-linejoin="round"/>
+    <svg class="brush" viewBox="0 0 352 34" aria-hidden="true">
+      <!-- Wonderist logo arrow (head, shaft, feathers), mirrored to point right -->
+      <g fill="#509999" transform="translate(352 0) scale(-1 1)">
+        <path d="M2 17L54 3V31Z"/>
+        <rect x="52" y="15" width="244" height="5"/>
+        <path d="M294 14.5L312 0H350L336 14.5Z"/>
+        <path d="M294 19.5L312 34H350L336 19.5Z"/>
+      </g>
     </svg>
     <h2 class="display section-title">Explore Wonderist</h2>
     <p class="section-sub">Services, careers and the people behind the smiles.</p>
