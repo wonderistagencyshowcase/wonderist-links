@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wonderist Agency | Links</title>
+  <meta name="description" content="The best dental marketing, with a smile. Book a call, see our work, read the blog and catch our latest podcasts.">
+  <meta property="og:title" content="Wonderist Agency">
+  <meta property="og:description" content="The best dental marketing, with a smile.">
+  <meta property="og:image" content="assets/wonderist-logo-white.png">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics (click tracking) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN46S1R65F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PN46S1R65F');
+  </script>
+
+  <style>
+    :root {
+      --lagoon: #509999;
+      --everglade: #206767;
+      --deep-sea: #053535;
+      --mystic: #DAE9E9;
+      --marine: #F3F9F9;
+      --terra-cotta: #DE6C5F;
+      --eclipse: #3A3A3A;
+      --charcoal: #6D6D70;
+      --white: #FFFFFF;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--marine);
+      color: var(--eclipse);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      background: var(--deep-sea);
+      color: var(--white);
+      text-align: center;
+      padding: 48px 16px 88px;
+    }
+    .hero img { width: 220px; max-width: 70%; height: auto; }
+    .tagline { margin-top: 14px; font-size: 16px; color: var(--mystic); }
+    .socials { display: flex; justify-content: center; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+    .social {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: rgba(255,255,255,.08);
+      transition: background .2s;
+    }
+    .social svg { width: 18px; height: 18px; fill: var(--white); }
+    .social:hover, .social:focus-visible { background: var(--lagoon); }
+
+    main {
+      max-width: 560px;
+      margin: -56px auto 0;
+      padding: 0 16px 48px;
+    }
+
+    .featured {
+      display: block;
+      background: var(--lagoon);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(5,53,53,.18);
+    }
+    .featured .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mystic); }
+    .featured h2 { font-size: 22px; font-weight: 700; margin-top: 6px; }
+    .featured p { margin-top: 6px; color: var(--marine); }
+    .featured .cta {
+      display: inline-block; margin-top: 16px;
+      background: var(--terra-cotta); color: var(--white);
+      font-weight: 700; padding: 11px 20px; border-radius: 999px;
+      transition: transform .2s;
+    }
+    .featured:hover .cta { transform: translateY(-2px); }
+
+    h3 {
+      font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--everglade); margin: 36px 0 12px;
+    }
+
+    .stack { display: grid; gap: 10px; }
+    .btn, .post {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--white);
+      border: 1px solid var(--mystic);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      font-weight: 500; font-size: 16px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .btn:hover, .post:hover, .btn:focus-visible, .post:focus-visible {
+      border-color: var(--lagoon); transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(5,53,53,.08);
+    }
+    .arrow { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--lagoon); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .post { padding: 12px; justify-content: flex-start; }
+    .post .thumb { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex: none; background: var(--mystic); }
+    .post .post-text { flex: 1; min-width: 0; }
+    .post .post-title { flex: 1; }
+    .post .post-date { display: block; font-size: 13px; color: var(--charcoal); margin-top: 2px; font-weight: 400; }
+    .post:not(:has(.thumb)) { padding: 16px 18px; }
+    .all-posts { display: inline-block; margin-top: 12px; font-weight: 700; color: var(--everglade); }
+    .all-posts:hover { color: var(--lagoon); }
+
+    details {
+      background: var(--white);
+      border: 1px solid var(--mystic);
+      border-radius: var(--radius);
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    summary {
+      list-style: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 18px; font-weight: 700; font-size: 16px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .count { font-weight: 500; color: var(--charcoal); font-size: 14px; margin-left: 6px; }
+    summary .chev { width: 18px; height: 18px; fill: none; stroke: var(--lagoon); stroke-width: 2; transition: transform .2s; }
+    details[open] summary .chev { transform: rotate(180deg); }
+    .rows { border-top: 1px solid var(--mystic); max-height: 420px; overflow-y: auto; }
+    .row {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 12px 18px; border-bottom: 1px solid var(--marine);
+    }
+    .row:last-child { border-bottom: 0; }
+    .row:hover, .row:focus-visible { background: var(--marine); }
+    .row-title { display: block; font-weight: 500; font-size: 15px; }
+    .row-sub { display: block; font-size: 13px; color: var(--charcoal); margin-top: 1px; }
+
+    footer { text-align: center; font-size: 13px; color: var(--charcoal); padding: 8px 16px 32px; }
+    footer a { color: var(--everglade); font-weight: 500; }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="assets/wonderist-logo-white.png" alt="Wonderist Agency" width="900" height="260">
+    <p class="tagline">The best dental marketing, with a smile.</p>
+    <nav class="socials" aria-label="Wonderist on social media">
+        <a class="social" href="https://instagram.com/wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="Instagram" data-label="Instagram"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+        <a class="social" href="https://facebook.com/wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="Facebook" data-label="Facebook"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a>
+        <a class="social" href="https://www.linkedin.com/company/3789021/" target="_blank" rel="noopener" data-section="social" aria-label="LinkedIn" data-label="LinkedIn"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+        <a class="social" href="https://tiktok.com/@wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="TikTok" data-label="TikTok"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a>
+        <a class="social" href="https://youtube.com/@wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="YouTube" data-label="YouTube"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
+        <a class="social" href="https://www.pinterest.com/wonderistagency/" target="_blank" rel="noopener" data-section="social" aria-label="Pinterest" data-label="Pinterest"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- FEATURED SPOT: swap the text and link here for events or offers -->
+    <a class="featured" href="https://calendly.com/d/49h-bbk-2z5/wonderist-45-minute-consultation" target="_blank" rel="noopener" data-section="featured" data-label="Schedule an intro call">
+      <span class="eyebrow">Let's Talk</span>
+      <h2>Schedule an Intro Call</h2>
+      <p>Book a 45-minute consultation with the Wonderist team.</p>
+      <span class="cta">Book a Time</span>
+    </a>
+
+    <h3>Explore Wonderist</h3>
+    <div class="stack">
+      <a class="btn" href="http://wonderistagency.com" target="_blank" rel="noopener" data-section="main" data-label="Visit Our Website"><span>Visit Our Website</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://www.wonderistagency.com/portfolio/portfolio-dental-websites" target="_blank" rel="noopener" data-section="main" data-label="Website Portfolio"><span>Website Portfolio</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://www.wonderistagency.com/our-work/photo-video" target="_blank" rel="noopener" data-section="main" data-label="Photo and Video Portfolio"><span>Photo and Video Portfolio</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://www.wonderistagency.com/services/pms-integration" target="_blank" rel="noopener" data-section="main" data-label="PMS Integration"><span>PMS Integration</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://www.wonderistagency.com/influencer-landing-page" target="_blank" rel="noopener" data-section="main" data-label="The Influencer Package"><span>The Influencer Package</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://www.wonderistagency.com/about/about#team" target="_blank" rel="noopener" data-section="main" data-label="Meet the Team"><span>Meet the Team</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://www.wonderistagency.com/about/careers" target="_blank" rel="noopener" data-section="main" data-label="We&#x27;re Hiring"><span>We&#x27;re Hiring</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://www.deodentalgroup.com" target="_blank" rel="noopener" data-section="main" data-label="Check Out DEO&#x27;s New Website"><span>Check Out DEO&#x27;s New Website</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <h3>Latest From the Blog</h3>
+    <!-- Filled in automatically from blog.json once the Webflow RSS feed is on. The links below show until then. -->
+    <div class="stack" id="blog-list">
+        <a class="post" href="https://www.wonderistagency.com/blog/your-patients-are-asking-ai-who-to-call" target="_blank" rel="noopener" data-section="blog" data-label="AI Search for Dentists: Can Patients Find You?"><span class="post-title">AI Search for Dentists: Can Patients Find You?</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="post" href="https://www.wonderistagency.com/blog/google-reviews-now-allow-video" target="_blank" rel="noopener" data-section="blog" data-label="Google Now Allows Video Reviews"><span class="post-title">Google Now Allows Video Reviews</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <a class="all-posts" href="https://www.wonderistagency.com/resources/blog" target="_blank" rel="noopener" data-section="blog" data-label="See all posts">See all posts &rarr;</a>
+
+    <h3>Listen and Read</h3>
+    <details>
+      <summary><span>Podcasts and Interviews<span class="count">(35)</span></span><svg class="chev" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="rows">
+        <a class="row" href="https://directory.libsyn.com/episode/index/id/36366215" target="_blank" rel="noopener" data-section="podcasts" data-label="Episode 1 with Pako Major"><span><span class="row-title">Episode 1 with Pako Major</span><span class="row-sub">The Wonderful Dentist Podcast</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://youtu.be/X5qYzYNgjvI" target="_blank" rel="noopener" data-section="podcasts" data-label="Marketing Minds Uncovered with Laura Maly"><span><span class="row-title">Marketing Minds Uncovered with Laura Maly</span><span class="row-sub">YouTube</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.podbean.com/ep/pb-v3rkt-18bbfa8" target="_blank" rel="noopener" data-section="podcasts" data-label="Michael Anderson"><span><span class="row-title">Michael Anderson</span><span class="row-sub">Just a Couple of Dentists</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.youtube.com/watch?v=DbCyzQMtWoI" target="_blank" rel="noopener" data-section="podcasts" data-label="Laura Maly&#x27;s Journey with Wonderist Agency"><span><span class="row-title">Laura Maly&#x27;s Journey with Wonderist Agency</span><span class="row-sub">YouTube</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://open.spotify.com/episode/61Fu3Fpe2RmYzbgUpbhCVp" target="_blank" rel="noopener" data-section="podcasts" data-label="Closing the Loop with Michael and Laura"><span><span class="row-title">Closing the Loop with Michael and Laura</span><span class="row-sub">Group Function</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://music.amazon.co.uk/podcasts/045ca63e-aaf4-4161-80f3-ccb33b37a584/episodes/51f918e5-71fa-48b3-aff6-e6c10e3e95ff/the-chief-psycho-podcast-culture-meets-innovation" target="_blank" rel="noopener" data-section="podcasts" data-label="Culture Meets Innovation"><span><span class="row-title">Culture Meets Innovation</span><span class="row-sub">Chief Psycho Podcast</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.verydentalpodcast.com/listen" target="_blank" rel="noopener" data-section="podcasts" data-label="Leveraging AI for Productivity"><span><span class="row-title">Leveraging AI for Productivity</span><span class="row-sub">Very Dental</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.truedentalsuccess.com/the-dentalpreneur-podcast/1855-innovation-in-dental-patient-acquisition-pt-1/" target="_blank" rel="noopener" data-section="podcasts" data-label="Innovation in Dental Patient Acquisition, Pt. 1"><span><span class="row-title">Innovation in Dental Patient Acquisition, Pt. 1</span><span class="row-sub">The Dentalpreneur Podcast</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://dentistadvisors.com/education-library/webinars/one-marketing-system-to-maximize-your-dollars/" target="_blank" rel="noopener" data-section="podcasts" data-label="What Authentic Marketing Looks Like"><span><span class="row-title">What Authentic Marketing Looks Like</span><span class="row-sub">Dentist Advisors</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://sharedpractices.libsyn.com/6-42-how-to-compete-in-a-gigantic-suburb" target="_blank" rel="noopener" data-section="podcasts" data-label="How to Compete in a Gigantic Suburb"><span><span class="row-title">How to Compete in a Gigantic Suburb</span><span class="row-sub">Shared Practices</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="http://sharedpractices.libsyn.com/podcast/sp06036" target="_blank" rel="noopener" data-section="podcasts" data-label="Case Acceptance, Leadership and Clinical Experience"><span><span class="row-title">Case Acceptance, Leadership and Clinical Experience</span><span class="row-sub">Shared Practices</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-video-marketing-3" target="_blank" rel="noopener" data-section="podcasts" data-label="How to Make Your Own Branding Videos"><span><span class="row-title">How to Make Your Own Branding Videos</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-direct-mailers-4?fbclid=IwAR05S1T7vYd1rdB4g2EtuFS2JHy_SMp4UELtG6hGPgPrJeQmtVGb53nSkjs" target="_blank" rel="noopener" data-section="podcasts" data-label="Tools for a Postcard Campaign"><span><span class="row-title">Tools for a Postcard Campaign</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.youtube.com/watch?v=tfAGpcznuX0&amp;ab_channel=DentalNachos" target="_blank" rel="noopener" data-section="podcasts" data-label="Tom Brown of Your Virtual Consult"><span><span class="row-title">Tom Brown of Your Virtual Consult</span><span class="row-sub">Dental Nachos</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://podcasts.apple.com/us/podcast/kick-push-pivot/id1548216595" target="_blank" rel="noopener" data-section="podcasts" data-label="Kick, Push, Pivot"><span><span class="row-title">Kick, Push, Pivot</span><span class="row-sub">Apple Podcasts</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-membership-plans-3" target="_blank" rel="noopener" data-section="podcasts" data-label="Marketing Your In-House Membership Plan"><span><span class="row-title">Marketing Your In-House Membership Plan</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-google-ads-11" target="_blank" rel="noopener" data-section="podcasts" data-label="Using Funnels to Nurture New Patients"><span><span class="row-title">Using Funnels to Nurture New Patients</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="http://dentistsimplantsandworms.com/episodes/episode-263-supper-clubs/?fbclid=IwAR00d76AkrJprVYM5_VfXXI9gl_5aVpeta6rD9R0r0Hmb_QZdgMeW7i68cY" target="_blank" rel="noopener" data-section="podcasts" data-label="Episode 263: Supper Clubs"><span><span class="row-title">Episode 263: Supper Clubs</span><span class="row-sub">Dentists, Implants and Worms</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://dentistadvisors.com/education-library/podcast/mastering-the-growth-game-maly-and-anderson/?utm_source=marketo&amp;utm_medium=email&amp;utm_campaign=dms-484&amp;utm_channel=marketing&amp;utm_content=podcast&amp;mkt_tok=ODE1LVZWUi03NjMAAAGRbB5dDV6EWBlik9vBMEWoCbX6FXcY8" target="_blank" rel="noopener" data-section="podcasts" data-label="Mastering the Growth Game, Episode 484"><span><span class="row-title">Mastering the Growth Game, Episode 484</span><span class="row-sub">Dentist Advisors</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-social-media-5" target="_blank" rel="noopener" data-section="podcasts" data-label="What Is Social Media Remarketing?"><span><span class="row-title">What Is Social Media Remarketing?</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-social-media-13" target="_blank" rel="noopener" data-section="podcasts" data-label="Building Your Social Media Community"><span><span class="row-title">Building Your Social Media Community</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://sprigusa.com/how-to-improve-seo-for-your-dental-office-2/" target="_blank" rel="noopener" data-section="podcasts" data-label="How to Improve SEO for Your Dental Practice"><span><span class="row-title">How to Improve SEO for Your Dental Practice</span><span class="row-sub">Sprig Podcast</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://apple.co/33nLsEN" target="_blank" rel="noopener" data-section="podcasts" data-label="Episode 138: Wonderist"><span><span class="row-title">Episode 138: Wonderist</span><span class="row-sub">The Life and Dentistry Podcast</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://podcasts.apple.com/us/podcast/194-interview-with-co-founder-of-wonderist-agency/id1316885704?i=1000569988357" target="_blank" rel="noopener" data-section="podcasts" data-label="Interview with Co-Founder Laura Maly"><span><span class="row-title">Interview with Co-Founder Laura Maly</span><span class="row-sub">Mommy Dentists in Business</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://podcasts.apple.com/us/podcast/151-branding-secrets/id1211941390?i=1000561556503" target="_blank" rel="noopener" data-section="podcasts" data-label="Episode 151: Branding Secrets"><span><span class="row-title">Episode 151: Branding Secrets</span><span class="row-sub">The Life and Dentistry Podcast</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-seo-7" target="_blank" rel="noopener" data-section="podcasts" data-label="Two Guerilla SEO Strategies"><span><span class="row-title">Two Guerilla SEO Strategies</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-google-ads-6" target="_blank" rel="noopener" data-section="podcasts" data-label="Aligning Your Google Ads Budget with Your Goals"><span><span class="row-title">Aligning Your Google Ads Budget with Your Goals</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://podcasts.apple.com/us/podcast/very-dental-measuring-success-in-marketing-with/id891079773?i=1000575107684" target="_blank" rel="noopener" data-section="podcasts" data-label="Measuring Success in Marketing"><span><span class="row-title">Measuring Success in Marketing</span><span class="row-sub">Very Dental</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://podcasts.apple.com/us/podcast/from-stock-to-standout-elevate-marketing/id1573619911?i=1000619324555" target="_blank" rel="noopener" data-section="podcasts" data-label="From Stock to Standout"><span><span class="row-title">From Stock to Standout</span><span class="row-sub">Apple Podcasts</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://bit.ly/3GD1I68" target="_blank" rel="noopener" data-section="podcasts" data-label="We Are All Content Creators"><span><span class="row-title">We Are All Content Creators</span><span class="row-sub">Group Function</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://thedentalmarketer.site/podcast/mmm-seo-12" target="_blank" rel="noopener" data-section="podcasts" data-label="Level Up Your Local SEO Game"><span><span class="row-title">Level Up Your Local SEO Game</span><span class="row-sub">The Dental Marketer</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.podomatic.com/podcasts/armincoinc/episodes/2023-11-30T11_00_00-08_00" target="_blank" rel="noopener" data-section="podcasts" data-label="Practice Acquisition vs. Start-Up, Episode 8"><span><span class="row-title">Practice Acquisition vs. Start-Up, Episode 8</span><span class="row-sub">Armin Co</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://podcasts.apple.com/us/podcast/build-your-brand-an-all-inclusive-marketing-strategy/id1635447620?i=1000631052667" target="_blank" rel="noopener" data-section="podcasts" data-label="Build Your Brand"><span><span class="row-title">Build Your Brand</span><span class="row-sub">Apple Podcasts</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://open.spotify.com/episode/3Buxn1yHKBmpkSnK2SyMnD" target="_blank" rel="noopener" data-section="podcasts" data-label="Marketing Your Dental Practice"><span><span class="row-title">Marketing Your Dental Practice</span><span class="row-sub">Art of Dental Finance and Management</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://soundcloud.com/user-596432482/laura-maly-on-the-importance-of-brand-identity-in-dental-marketing?si=f248aa75a4a14b98980530c81e4adb44&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing" target="_blank" rel="noopener" data-section="podcasts" data-label="The Importance of Brand Identity"><span><span class="row-title">The Importance of Brand Identity</span><span class="row-sub">Dentistry Speaks</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </details>
+    <details>
+      <summary><span>Featured In<span class="count">(6)</span></span><svg class="chev" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="rows">
+        <a class="row" href="https://speakingconsultingnetwork.com/building-a-strong-brand-identity-unlocking-speaking-opportunities-and-elevating-your-expertise/" target="_blank" rel="noopener" data-section="featured-in" data-label="Building a Strong Brand Identity"><span><span class="row-title">Building a Strong Brand Identity</span><span class="row-sub">Speaking Consulting Network</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://practicepassion.tv/tracking/" target="_blank" rel="noopener" data-section="featured-in" data-label="Tracking Leads to Treatment"><span><span class="row-title">Tracking Leads to Treatment</span><span class="row-sub">Practice Passion</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://resources.carestack.com/article/dental-implant-marketing-guide" target="_blank" rel="noopener" data-section="featured-in" data-label="Implant Marketing Doesn&#x27;t Have to Be Complicated"><span><span class="row-title">Implant Marketing Doesn&#x27;t Have to Be Complicated</span><span class="row-sub">CareStack</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://emitrr.com/blog/why-should-dental-practices-partner-with-marketing-agencies/" target="_blank" rel="noopener" data-section="featured-in" data-label="Top Dental Marketing Agencies"><span><span class="row-title">Top Dental Marketing Agencies</span><span class="row-sub">Emitrr</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.wonderistagency.com/resources/blog" target="_blank" rel="noopener" data-section="featured-in" data-label="Laura&#x27;s Top Books of 2024"><span><span class="row-title">Laura&#x27;s Top Books of 2024</span><span class="row-sub">Wonderist Blog</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.wonderistagency.com/about/about" target="_blank" rel="noopener" data-section="featured-in" data-label="Wonderist Culture"><span><span class="row-title">Wonderist Culture</span><span class="row-sub">Wonderist</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </details>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> <a href="https://www.wonderistagency.com" target="_blank" rel="noopener">Wonderist Agency</a>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Click tracking: every link sends a "link_click" event to Google Analytics
+    document.addEventListener('click', function (ev) {
+      var link = ev.target.closest('a[data-label]');
+      if (!link || typeof gtag !== 'function') return;
+      gtag('event', 'link_click', {
+        link_text: link.dataset.label,
+        link_url: link.href,
+        link_section: link.dataset.section,
+        transport_type: 'beacon'
+      });
+    });
+
+    // Blog feed: blog.json is refreshed daily by the GitHub Action in .github/workflows
+    var ARROW = '<svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    function esc(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    fetch('blog.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        var posts = data && data.posts;
+        if (!posts || !posts.length) return;
+        document.getElementById('blog-list').innerHTML = posts.slice(0, 3).map(function (p) {
+          var date = p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+          return '<a class="post" href="' + esc(p.link) + '" target="_blank" rel="noopener" data-section="blog" data-label="' + esc(p.title) + '">' +
+            (p.image ? '<img class="thumb" src="' + esc(p.image) + '" alt="" loading="lazy">' : '') +
+            '<span class="post-text"><span class="post-title">' + esc(p.title) + '</span>' +
+            (date ? '<span class="post-date">' + date + '</span>' : '') + '</span>' + ARROW + '</a>';
+        }).join('');
+      })
+      .catch(function () {});
+  </script>
+</body>
+</html>
