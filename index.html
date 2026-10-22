@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 
   <!-- Google Analytics (click tracking) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN46S1R65F"></script>
@@ -33,170 +33,232 @@
       --eclipse: #3A3A3A;
       --charcoal: #6D6D70;
       --white: #FFFFFF;
-      --radius: 14px;
+      --display: "Oswald", "DM Sans", sans-serif;
     }
-    * { box-sizing: border-box; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "DM Sans", system-ui, sans-serif;
-      background: var(--marine);
+      background: var(--mystic);
       color: var(--eclipse);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
+    /* The page is a stack of full-width color blocks. On desktop it sits in a phone-width card. */
+    .page { max-width: 480px; margin: 0 auto; background: var(--marine); overflow: hidden; }
+    @media (min-width: 560px) {
+      body { padding: 40px 0; }
+      .page { border-radius: 32px; box-shadow: 0 24px 60px rgba(5,53,53,.22); }
+    }
+    .band { position: relative; padding: 48px 28px; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .display { font-family: var(--display); font-weight: 700; text-transform: uppercase; line-height: .95; letter-spacing: .01em; }
+
+    /* Pill buttons (brand CTA style) */
+    .pill {
+      display: block; text-align: center;
+      padding: 14px 20px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; letter-spacing: .02em;
+      transition: transform .2s, background .2s, color .2s, box-shadow .2s;
+    }
+    .pill:hover, .pill:focus-visible { transform: translateY(-2px); }
+    .pill-ghost { border: 1.5px solid rgba(255,255,255,.85); color: var(--white); }
+    .pill-ghost:hover, .pill-ghost:focus-visible { background: var(--white); color: var(--deep-sea); }
+    .pill-soft { background: var(--mystic); border: 1.5px solid var(--everglade); color: var(--everglade); }
+    .pill-soft:hover, .pill-soft:focus-visible { background: var(--everglade); color: var(--white); }
+    .pill-solid { background: var(--lagoon); border: 1.5px solid var(--lagoon); color: var(--white); }
+    .pill-solid:hover, .pill-solid:focus-visible { background: var(--everglade); border-color: var(--everglade); }
+    .pill-cta { display: inline-block; background: var(--terra-cotta); color: var(--white); box-shadow: 0 8px 20px rgba(222,108,95,.35); }
+    .pill-small { display: inline-block; padding: 9px 18px; font-size: 13px; }
+    .stack { display: grid; gap: 12px; }
+
+    /* 1. Hero: wood texture with a big icon watermark */
     .hero {
-      background: var(--deep-sea);
-      color: var(--white);
-      text-align: center;
-      padding: 48px 16px 88px;
+      text-align: center; color: var(--white);
+      background: var(--everglade) url("assets/texture-wood.jpg") center / cover;
+      padding-top: 56px;
     }
-    .hero img { width: 220px; max-width: 70%; height: auto; }
-    .tagline { margin-top: 14px; font-size: 16px; color: var(--mystic); }
-    .socials { display: flex; justify-content: center; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
-    .social {
-      width: 42px; height: 42px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: rgba(255,255,255,.08);
-      transition: background .2s;
+    .hero::before {
+      content: ""; position: absolute; width: 360px; height: 360px; right: -120px; top: -70px;
+      background: url("assets/icon-white.png") center / contain no-repeat; opacity: .07; pointer-events: none;
     }
-    .social svg { width: 18px; height: 18px; fill: var(--white); }
-    .social:hover, .social:focus-visible { background: var(--lagoon); }
+    .hero .eyebrow { color: var(--mystic); }
+    .hero .logo { display: block; width: 250px; max-width: 80%; height: auto; margin: 12px auto 0; }
+    .tagline {
+      display: inline-block; margin: 18px 0 30px;
+      padding: 6px 16px; border-radius: 999px;
+      background: rgba(5,53,53,.45); color: var(--mystic); font-size: 14px;
+    }
+    .hero .stack { position: relative; }
 
-    main {
-      max-width: 560px;
-      margin: -56px auto 0;
-      padding: 0 16px 48px;
-    }
+    /* 2. Book a call: split block with illustration */
+    .call { background: var(--deep-sea); color: var(--white); display: grid; grid-template-columns: 1fr 110px; gap: 18px; align-items: center; }
+    .call h2 { font-size: 44px; }
+    .call h2 span { color: var(--lagoon); }
+    .call p { margin: 14px 0 22px; color: var(--mystic); font-size: 15px; }
+    .call svg { width: 110px; height: auto; }
 
-    .featured {
-      display: block;
-      background: var(--lagoon);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(5,53,53,.18);
-    }
-    .featured .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mystic); }
-    .featured h2 { font-size: 22px; font-weight: 700; margin-top: 6px; }
-    .featured p { margin-top: 6px; color: var(--marine); }
-    .featured .cta {
-      display: inline-block; margin-top: 16px;
-      background: var(--terra-cotta); color: var(--white);
-      font-weight: 700; padding: 11px 20px; border-radius: 999px;
-      transition: transform .2s;
-    }
-    .featured:hover .cta { transform: translateY(-2px); }
+    /* 3. Explore */
+    .explore { background: var(--marine); text-align: center; }
+    .section-title { font-size: 34px; color: var(--deep-sea); margin-bottom: 6px; }
+    .section-sub { color: var(--charcoal); margin-bottom: 24px; font-size: 15px; }
+    .brush { display: block; width: 90px; margin: 0 auto 14px; transform: scaleX(-1); }
 
-    h3 {
-      font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--everglade); margin: 36px 0 12px;
+    /* 4. Blog */
+    .blog { background: var(--mystic); }
+    .blog .section-title, .blog .section-sub { text-align: center; }
+    .post {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--white); border-radius: 18px; padding: 12px;
+      transition: transform .2s, box-shadow .2s;
     }
-
-    .stack { display: grid; gap: 10px; }
-    .btn, .post {
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      background: var(--white);
-      border: 1px solid var(--mystic);
-      border-radius: var(--radius);
-      padding: 16px 18px;
-      font-weight: 500; font-size: 16px;
-      transition: border-color .2s, transform .2s, box-shadow .2s;
+    .post:hover, .post:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(5,53,53,.12); }
+    .post .thumb { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; flex: none; background: var(--marine); }
+    .post .badge {
+      width: 48px; height: 48px; border-radius: 12px; flex: none;
+      display: grid; place-items: center; background: var(--lagoon);
     }
-    .btn:hover, .post:hover, .btn:focus-visible, .post:focus-visible {
-      border-color: var(--lagoon); transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(5,53,53,.08);
-    }
+    .post .badge img { width: 26px; }
+    .post-text { flex: 1; min-width: 0; font-weight: 700; color: var(--deep-sea); }
+    .post-date { display: block; font-weight: 400; font-size: 13px; color: var(--charcoal); margin-top: 3px; }
     .arrow { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--lagoon); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .all-posts { display: block; text-align: center; margin-top: 18px; font-weight: 700; color: var(--everglade); text-decoration: underline; text-underline-offset: 4px; }
 
-    .post { padding: 12px; justify-content: flex-start; }
-    .post .thumb { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex: none; background: var(--mystic); }
-    .post .post-text { flex: 1; min-width: 0; }
-    .post .post-title { flex: 1; }
-    .post .post-date { display: block; font-size: 13px; color: var(--charcoal); margin-top: 2px; font-weight: 400; }
-    .post:not(:has(.thumb)) { padding: 16px 18px; }
-    .all-posts { display: inline-block; margin-top: 12px; font-weight: 700; color: var(--everglade); }
-    .all-posts:hover { color: var(--lagoon); }
-
-    details {
-      background: var(--white);
-      border: 1px solid var(--mystic);
-      border-radius: var(--radius);
-      margin-top: 10px;
-      overflow: hidden;
-    }
-    summary {
-      list-style: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 18px; font-weight: 700; font-size: 16px;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary .count { font-weight: 500; color: var(--charcoal); font-size: 14px; margin-left: 6px; }
-    summary .chev { width: 18px; height: 18px; fill: none; stroke: var(--lagoon); stroke-width: 2; transition: transform .2s; }
-    details[open] summary .chev { transform: rotate(180deg); }
-    .rows { border-top: 1px solid var(--mystic); max-height: 420px; overflow-y: auto; }
-    .row {
+    /* 5. Listen + Featured In: two-column block, each opens a list */
+    .split { display: grid; grid-template-columns: 1fr 1fr; background: var(--white); border-top: 1px solid var(--mystic); }
+    .tile { padding: 34px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: background .2s; }
+    .tile + .tile { border-left: 1px solid var(--mystic); }
+    .tile:hover, .tile[aria-expanded="true"] { background: var(--marine); }
+    .tile svg.ico { width: 44px; height: 44px; }
+    .tile .num { font-size: 46px; color: var(--deep-sea); }
+    .tile .label { max-width: 150px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--everglade); }
+    .tile .pill { margin-top: auto; }
+    .tile[aria-expanded="true"] .pill-soft { background: var(--everglade); color: var(--white); }
+    .panel { background: var(--marine); border-top: 3px solid var(--lagoon); }
+    .panel[hidden] { display: none; }
+    .panel-head {
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 12px 18px; border-bottom: 1px solid var(--marine);
+      padding: 14px 16px 14px 24px; background: var(--everglade); color: var(--white);
     }
-    .row:last-child { border-bottom: 0; }
-    .row:hover, .row:focus-visible { background: var(--marine); }
-    .row-title { display: block; font-weight: 500; font-size: 15px; }
+    .panel-head .display { font-size: 20px; letter-spacing: .04em; }
+    .close {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.85);
+      font-size: 13px; font-weight: 700; color: var(--white); transition: background .2s, color .2s;
+    }
+    .close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; }
+    .close:hover, .close:focus-visible { background: var(--white); color: var(--everglade); }
+    .panel-rows { max-height: 420px; overflow-y: auto; }
+    .close-bottom { display: block; width: 100%; padding: 14px; font-weight: 700; color: var(--everglade); background: var(--mystic); }
+    .close-bottom:hover, .close-bottom:focus-visible { background: var(--everglade); color: var(--white); }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 24px; border-bottom: 1px solid var(--mystic); }
+    .row:hover, .row:focus-visible { background: var(--white); }
+    .row-title { display: block; font-weight: 500; font-size: 15px; color: var(--deep-sea); }
     .row-sub { display: block; font-size: 13px; color: var(--charcoal); margin-top: 1px; }
 
-    footer { text-align: center; font-size: 13px; color: var(--charcoal); padding: 8px 16px 32px; }
-    footer a { color: var(--everglade); font-weight: 500; }
+    /* 6. Socials footer */
+    .footer { background: var(--deep-sea); color: var(--white); text-align: center; padding: 40px 28px 34px; }
+    .footer .display { font-size: 24px; letter-spacing: .06em; }
+    .socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0 26px; }
+    .social {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--everglade);
+      transition: background .2s, transform .2s;
+    }
+    .social svg { width: 19px; height: 19px; fill: var(--white); }
+    .social:hover, .social:focus-visible { background: var(--lagoon); transform: translateY(-2px); }
+    .copyright { font-size: 13px; color: var(--mystic); opacity: .8; }
 
+    @media (max-width: 360px) {
+      .call { grid-template-columns: 1fr; }
+      .call svg { display: none; }
+    }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <img src="assets/wonderist-logo-white.png" alt="Wonderist Agency" width="900" height="260">
-    <p class="tagline">The best dental marketing, with a smile.</p>
-    <nav class="socials" aria-label="Wonderist on social media">
-        <a class="social" href="https://instagram.com/wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="Instagram" data-label="Instagram"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
-        <a class="social" href="https://facebook.com/wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="Facebook" data-label="Facebook"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a>
-        <a class="social" href="https://www.linkedin.com/company/3789021/" target="_blank" rel="noopener" data-section="social" aria-label="LinkedIn" data-label="LinkedIn"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
-        <a class="social" href="https://tiktok.com/@wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="TikTok" data-label="TikTok"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a>
-        <a class="social" href="https://youtube.com/@wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="YouTube" data-label="YouTube"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
-        <a class="social" href="https://www.pinterest.com/wonderistagency/" target="_blank" rel="noopener" data-section="social" aria-label="Pinterest" data-label="Pinterest"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg></a>
+<div class="page">
+
+  <!-- 1. HERO -->
+  <header class="band hero">
+    <p class="eyebrow">Welcome to</p>
+    <img class="logo" src="assets/wonderist-logo-white.png" alt="Wonderist Agency" width="900" height="260">
+    <p class="tagline">the best dental marketing, with a smile.</p>
+    <nav class="stack" aria-label="Main links">
+        <a class="pill pill-ghost" href="http://wonderistagency.com" target="_blank" rel="noopener" data-section="hero" data-label="Visit Our Website">Visit Our Website</a>
+        <a class="pill pill-ghost" href="https://www.wonderistagency.com/portfolio/portfolio-dental-websites" target="_blank" rel="noopener" data-section="hero" data-label="Website Portfolio">Website Portfolio</a>
+        <a class="pill pill-ghost" href="https://www.wonderistagency.com/our-work/photo-video" target="_blank" rel="noopener" data-section="hero" data-label="Photo and Video Portfolio">Photo and Video Portfolio</a>
     </nav>
   </header>
 
-  <main>
-    <!-- FEATURED SPOT: swap the text and link here for events or offers -->
-    <a class="featured" href="https://calendly.com/d/49h-bbk-2z5/wonderist-45-minute-consultation" target="_blank" rel="noopener" data-section="featured" data-label="Schedule an intro call">
-      <span class="eyebrow">Let's Talk</span>
-      <h2>Schedule an Intro Call</h2>
-      <p>Book a 45-minute consultation with the Wonderist team.</p>
-      <span class="cta">Book a Time</span>
-    </a>
+  <!-- 2. FEATURED SPOT: swap the heading, text and link here for events or offers -->
+  <section class="band call">
+    <div>
+      <p class="eyebrow" style="color: var(--lagoon)">Let's talk</p>
+      <h2 class="display">Grow your <span>practice.</span></h2>
+      <p>Book a free 45-minute consultation with the Wonderist team.</p>
+      <a class="pill pill-cta" href="https://calendly.com/d/49h-bbk-2z5/wonderist-45-minute-consultation" target="_blank" rel="noopener" data-section="featured" data-label="Schedule an intro call">Book a Call</a>
+    </div>
+    <svg viewBox="0 0 120 130" aria-hidden="true">
+      <rect x="6" y="18" width="108" height="104" rx="14" fill="#DAE9E9"/>
+      <path d="M6 32a14 14 0 0 1 14-14h80a14 14 0 0 1 14 14v12H6z" fill="#509999"/>
+      <rect x="30" y="6" width="8" height="24" rx="4" fill="#F3F9F9"/>
+      <rect x="82" y="6" width="8" height="24" rx="4" fill="#F3F9F9"/>
+      <g fill="#206767" opacity=".35">
+        <circle cx="28" cy="62" r="5"/><circle cx="50" cy="62" r="5"/><circle cx="72" cy="62" r="5"/><circle cx="94" cy="62" r="5"/>
+        <circle cx="28" cy="82" r="5"/><circle cx="50" cy="82" r="5"/><circle cx="94" cy="82" r="5"/>
+        <circle cx="28" cy="102" r="5"/><circle cx="50" cy="102" r="5"/><circle cx="72" cy="102" r="5"/>
+      </g>
+      <circle cx="72" cy="82" r="13" fill="#DE6C5F"/>
+      <path d="M66 82l4 4 8-8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </section>
 
-    <h3>Explore Wonderist</h3>
+  <!-- 3. EXPLORE -->
+  <section class="band explore">
+    <img class="brush" src="assets/arrow-brush.png" alt="" width="201" height="28">
+    <h2 class="display section-title">Explore Wonderist</h2>
+    <p class="section-sub">Services, careers and the people behind the smiles.</p>
     <div class="stack">
-      <a class="btn" href="http://wonderistagency.com" target="_blank" rel="noopener" data-section="main" data-label="Visit Our Website"><span>Visit Our Website</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="https://www.wonderistagency.com/portfolio/portfolio-dental-websites" target="_blank" rel="noopener" data-section="main" data-label="Website Portfolio"><span>Website Portfolio</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="https://www.wonderistagency.com/our-work/photo-video" target="_blank" rel="noopener" data-section="main" data-label="Photo and Video Portfolio"><span>Photo and Video Portfolio</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="https://www.wonderistagency.com/services/pms-integration" target="_blank" rel="noopener" data-section="main" data-label="PMS Integration"><span>PMS Integration</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="https://www.wonderistagency.com/influencer-landing-page" target="_blank" rel="noopener" data-section="main" data-label="The Influencer Package"><span>The Influencer Package</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="https://www.wonderistagency.com/about/about#team" target="_blank" rel="noopener" data-section="main" data-label="Meet the Team"><span>Meet the Team</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="https://www.wonderistagency.com/about/careers" target="_blank" rel="noopener" data-section="main" data-label="We&#x27;re Hiring"><span>We&#x27;re Hiring</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="https://www.deodentalgroup.com" target="_blank" rel="noopener" data-section="main" data-label="Check Out DEO&#x27;s New Website"><span>Check Out DEO&#x27;s New Website</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="pill pill-soft" href="https://www.wonderistagency.com/services/pms-integration" target="_blank" rel="noopener" data-section="main" data-label="PMS Integration">PMS Integration</a>
+        <a class="pill pill-solid" href="https://www.wonderistagency.com/influencer-landing-page" target="_blank" rel="noopener" data-section="main" data-label="The Influencer Package">The Influencer Package</a>
+        <a class="pill pill-soft" href="https://www.wonderistagency.com/about/about#team" target="_blank" rel="noopener" data-section="main" data-label="Meet the Team">Meet the Team</a>
+        <a class="pill pill-solid" href="https://www.wonderistagency.com/about/careers" target="_blank" rel="noopener" data-section="main" data-label="We&#x27;re Hiring">We&#x27;re Hiring</a>
+        <a class="pill pill-soft" href="https://www.deodentalgroup.com" target="_blank" rel="noopener" data-section="main" data-label="Check Out DEO&#x27;s New Website">Check Out DEO&#x27;s New Website</a>
     </div>
+  </section>
 
-    <h3>Latest From the Blog</h3>
-    <!-- Filled in automatically from blog.json once the Webflow RSS feed is on. The links below show until then. -->
+  <!-- 4. BLOG: filled in automatically from blog.json once the Webflow RSS feed is on. The links below show until then. -->
+  <section class="band blog">
+    <h2 class="display section-title">Fresh From the Blog</h2>
+    <p class="section-sub">Tips and trends for growing your practice.</p>
     <div class="stack" id="blog-list">
-        <a class="post" href="https://www.wonderistagency.com/blog/your-patients-are-asking-ai-who-to-call" target="_blank" rel="noopener" data-section="blog" data-label="AI Search for Dentists: Can Patients Find You?"><span class="post-title">AI Search for Dentists: Can Patients Find You?</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="post" href="https://www.wonderistagency.com/blog/google-reviews-now-allow-video" target="_blank" rel="noopener" data-section="blog" data-label="Google Now Allows Video Reviews"><span class="post-title">Google Now Allows Video Reviews</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="post" href="https://www.wonderistagency.com/blog/your-patients-are-asking-ai-who-to-call" target="_blank" rel="noopener" data-section="blog" data-label="AI Search for Dentists: Can Patients Find You?"><span class="badge"><img src="assets/icon-white.png" alt=""></span><span class="post-text">AI Search for Dentists: Can Patients Find You?</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="post" href="https://www.wonderistagency.com/blog/google-reviews-now-allow-video" target="_blank" rel="noopener" data-section="blog" data-label="Google Now Allows Video Reviews"><span class="badge"><img src="assets/icon-white.png" alt=""></span><span class="post-text">Google Now Allows Video Reviews</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <a class="all-posts" href="https://www.wonderistagency.com/resources/blog" target="_blank" rel="noopener" data-section="blog" data-label="See all posts">See all posts &rarr;</a>
+    <a class="all-posts" href="https://www.wonderistagency.com/resources/blog" target="_blank" rel="noopener" data-section="blog" data-label="See all posts">See all posts</a>
+  </section>
 
-    <h3>Listen and Read</h3>
-    <details>
-      <summary><span>Podcasts and Interviews<span class="count">(35)</span></span><svg class="chev" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <div class="rows">
+  <!-- 5. LISTEN + FEATURED IN -->
+  <section class="split">
+    <button class="tile" type="button" aria-expanded="false" aria-controls="panel-podcasts">
+      <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 30v-6a16 16 0 0 1 32 0v6" fill="none" stroke="#509999" stroke-width="4" stroke-linecap="round"/><rect x="6" y="28" width="10" height="14" rx="4" fill="#206767"/><rect x="32" y="28" width="10" height="14" rx="4" fill="#206767"/></svg>
+      <span class="display num">36</span>
+      <span class="label">Podcasts</span>
+      <span class="pill pill-soft pill-small" data-closed="Listen">Listen</span>
+    </button>
+    <button class="tile" type="button" aria-expanded="false" aria-controls="panel-featured">
+      <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5L24 33.7l-11.2 5.9 2.1-12.5-9.1-8.9 12.6-1.8z" fill="#509999"/><circle cx="24" cy="24" r="5" fill="#206767"/></svg>
+      <span class="display num">6</span>
+      <span class="label">Blogs We're Featured In</span>
+      <span class="pill pill-soft pill-small" data-closed="Read the Blogs">Read the Blogs</span>
+    </button>
+  </section>
+  <div class="panel" id="panel-podcasts" hidden>
+    <div class="panel-head"><p class="display">Podcasts</p><button class="close" type="button">Close <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="panel-rows">
         <a class="row" href="https://directory.libsyn.com/episode/index/id/36366215" target="_blank" rel="noopener" data-section="podcasts" data-label="Episode 1 with Pako Major"><span><span class="row-title">Episode 1 with Pako Major</span><span class="row-sub">The Wonderful Dentist Podcast</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://youtu.be/X5qYzYNgjvI" target="_blank" rel="noopener" data-section="podcasts" data-label="Marketing Minds Uncovered with Laura Maly"><span><span class="row-title">Marketing Minds Uncovered with Laura Maly</span><span class="row-sub">YouTube</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://www.podbean.com/ep/pb-v3rkt-18bbfa8" target="_blank" rel="noopener" data-section="podcasts" data-label="Michael Anderson"><span><span class="row-title">Michael Anderson</span><span class="row-sub">Just a Couple of Dentists</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -232,27 +294,73 @@
         <a class="row" href="https://podcasts.apple.com/us/podcast/build-your-brand-an-all-inclusive-marketing-strategy/id1635447620?i=1000631052667" target="_blank" rel="noopener" data-section="podcasts" data-label="Build Your Brand"><span><span class="row-title">Build Your Brand</span><span class="row-sub">Apple Podcasts</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://open.spotify.com/episode/3Buxn1yHKBmpkSnK2SyMnD" target="_blank" rel="noopener" data-section="podcasts" data-label="Marketing Your Dental Practice"><span><span class="row-title">Marketing Your Dental Practice</span><span class="row-sub">Art of Dental Finance and Management</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://soundcloud.com/user-596432482/laura-maly-on-the-importance-of-brand-identity-in-dental-marketing?si=f248aa75a4a14b98980530c81e4adb44&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing" target="_blank" rel="noopener" data-section="podcasts" data-label="The Importance of Brand Identity"><span><span class="row-title">The Importance of Brand Identity</span><span class="row-sub">Dentistry Speaks</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </details>
-    <details>
-      <summary><span>Featured In<span class="count">(6)</span></span><svg class="chev" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <div class="rows">
+        <a class="row" href="https://podcasts.apple.com/us/podcast/the-state-of-dental-marketing/id1025182071?i=1000380050280" target="_blank" rel="noopener" data-section="podcasts" data-label="The State of Dental Marketing"><span><span class="row-title">The State of Dental Marketing</span><span class="row-sub">DentistMetrics with Jonathan VanHorn</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <button class="close-bottom" type="button">Close list</button>
+  </div>
+  <div class="panel" id="panel-featured" hidden>
+    <div class="panel-head"><p class="display">Blogs We're Featured In</p><button class="close" type="button">Close <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="panel-rows">
+        <a class="row" href="https://sdbj.com/services/marketers-find-promise-peril-diversification/" target="_blank" rel="noopener" data-section="featured-in" data-label="Marketers Find Promise, Peril in Diversification"><span><span class="row-title">Marketers Find Promise, Peril in Diversification</span><span class="row-sub">San Diego Business Journal (Cover Story)</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="row" href="https://www.inc.com/inc5000-series-california-2020.html?industry=advertising-marketing" target="_blank" rel="noopener" data-section="featured-in" data-label="#95 Fastest-Growing Private Companies in California"><span><span class="row-title">#95 Fastest-Growing Private Companies in California</span><span class="row-sub">Inc. 5000</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://speakingconsultingnetwork.com/building-a-strong-brand-identity-unlocking-speaking-opportunities-and-elevating-your-expertise/" target="_blank" rel="noopener" data-section="featured-in" data-label="Building a Strong Brand Identity"><span><span class="row-title">Building a Strong Brand Identity</span><span class="row-sub">Speaking Consulting Network</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://practicepassion.tv/tracking/" target="_blank" rel="noopener" data-section="featured-in" data-label="Tracking Leads to Treatment"><span><span class="row-title">Tracking Leads to Treatment</span><span class="row-sub">Practice Passion</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://resources.carestack.com/article/dental-implant-marketing-guide" target="_blank" rel="noopener" data-section="featured-in" data-label="Implant Marketing Doesn&#x27;t Have to Be Complicated"><span><span class="row-title">Implant Marketing Doesn&#x27;t Have to Be Complicated</span><span class="row-sub">CareStack</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="row" href="https://emitrr.com/blog/why-should-dental-practices-partner-with-marketing-agencies/" target="_blank" rel="noopener" data-section="featured-in" data-label="Top Dental Marketing Agencies"><span><span class="row-title">Top Dental Marketing Agencies</span><span class="row-sub">Emitrr</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="row" href="https://www.wonderistagency.com/resources/blog" target="_blank" rel="noopener" data-section="featured-in" data-label="Laura&#x27;s Top Books of 2024"><span><span class="row-title">Laura&#x27;s Top Books of 2024</span><span class="row-sub">Wonderist Blog</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="row" href="https://www.wonderistagency.com/about/about" target="_blank" rel="noopener" data-section="featured-in" data-label="Wonderist Culture"><span><span class="row-title">Wonderist Culture</span><span class="row-sub">Wonderist</span></span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </details>
-  </main>
+    </div>
+    <button class="close-bottom" type="button">Close list</button>
+  </div>
 
-  <footer>
-    &copy; <span id="year"></span> <a href="https://www.wonderistagency.com" target="_blank" rel="noopener">Wonderist Agency</a>
+  <!-- 6. SOCIALS -->
+  <footer class="footer">
+    <p class="display">Follow us on socials</p>
+    <nav class="socials" aria-label="Wonderist on social media">
+        <a class="social" href="https://instagram.com/wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="Instagram" data-label="Instagram"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+        <a class="social" href="https://facebook.com/wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="Facebook" data-label="Facebook"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a>
+        <a class="social" href="https://www.linkedin.com/company/3789021/" target="_blank" rel="noopener" data-section="social" aria-label="LinkedIn" data-label="LinkedIn"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+        <a class="social" href="https://tiktok.com/@wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="TikTok" data-label="TikTok"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a>
+        <a class="social" href="https://youtube.com/@wonderistagency" target="_blank" rel="noopener" data-section="social" aria-label="YouTube" data-label="YouTube"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
+        <a class="social" href="https://www.pinterest.com/wonderistagency/" target="_blank" rel="noopener" data-section="social" aria-label="Pinterest" data-label="Pinterest"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg></a>
+    </nav>
+    <p class="copyright">&copy; <span id="year"></span> Wonderist Agency</p>
   </footer>
+
+</div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Podcasts / Featured In tiles: open one list at a time.
+    // While a list is open its tile button reads "Close", and the list has Close buttons at the top and bottom.
+    var tiles = document.querySelectorAll('.tile');
+    function closeAll() {
+      tiles.forEach(function (t) {
+        var pill = t.querySelector('.pill');
+        t.setAttribute('aria-expanded', 'false');
+        pill.textContent = pill.dataset.closed;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = true;
+      });
+    }
+    tiles.forEach(function (tile) {
+      tile.addEventListener('click', function () {
+        var open = tile.getAttribute('aria-expanded') !== 'true';
+        closeAll();
+        if (open) {
+          var panel = document.getElementById(tile.getAttribute('aria-controls'));
+          tile.setAttribute('aria-expanded', 'true');
+          tile.querySelector('.pill').innerHTML = 'Close &times;';
+          panel.hidden = false;
+          panel.querySelector('.panel-rows').scrollTop = 0;
+          if (typeof gtag === 'function') gtag('event', 'section_open', { link_section: tile.querySelector('.label').textContent });
+        }
+      });
+    });
+    document.querySelectorAll('.close, .close-bottom').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        closeAll();
+        document.querySelector('.split').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
 
     // Click tracking: every link sends a "link_click" event to Google Analytics
     document.addEventListener('click', function (ev) {
@@ -278,9 +386,11 @@
         if (!posts || !posts.length) return;
         document.getElementById('blog-list').innerHTML = posts.slice(0, 3).map(function (p) {
           var date = p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+          var pic = p.image
+            ? '<img class="thumb" src="' + esc(p.image) + '" alt="" loading="lazy">'
+            : '<span class="badge"><img src="assets/icon-white.png" alt=""></span>';
           return '<a class="post" href="' + esc(p.link) + '" target="_blank" rel="noopener" data-section="blog" data-label="' + esc(p.title) + '">' +
-            (p.image ? '<img class="thumb" src="' + esc(p.image) + '" alt="" loading="lazy">' : '') +
-            '<span class="post-text"><span class="post-title">' + esc(p.title) + '</span>' +
+            pic + '<span class="post-text">' + esc(p.title) +
             (date ? '<span class="post-date">' + date + '</span>' : '') + '</span>' + ARROW + '</a>';
         }).join('');
       })
