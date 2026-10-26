@@ -43,7 +43,8 @@ def main():
         except (TypeError, ValueError):
             date = ""
         posts.append({
-            "title": (item.findtext("title") or "").strip(),
+            # Webflow adds the SEO suffix " | Wonderist" to every feed title
+            "title": re.sub(r"\s*\|\s*Wonderist\s*$", "", (item.findtext("title") or "").strip()),
             "link": (item.findtext("link") or "").strip(),
             "date": date,
             "image": image_for(item),
